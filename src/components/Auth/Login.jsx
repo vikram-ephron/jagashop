@@ -1,22 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 import '../../styles/Auth.css';
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { user, setUser } = useCart();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  const [error, setError] = useState('');
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      navigate('/shop');
+    }
+  }, [user, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add login logic here
-    console.log(formData);
+    setError('');
+
+    try {
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(u => u.email === formData.email && u.password === formData.password);
+      
+      if (user) {
+        // Store only necessary user data
+        const userData = {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+        };
+        localStorage.setItem('currentUser', JSON.stringify(userData));
+        setUser(userData);
+        navigate('/shop');
+      } else {
+        setError('Invalid email or password');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+      console.error('Login error:', err);
+    }
   };
 
   return (
     <div className="auth-container">
       <div className="auth-box">
         <h2>Login to Vizon Workshop</h2>
+        {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input

@@ -1,24 +1,43 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/Auth.css';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     phone: '',
   });
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add signup logic here
-    console.log(formData);
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    
+    if (users.some(user => user.email === formData.email)) {
+      setError('Email already exists');
+      return;
+    }
+
+    users.push({
+      ...formData,
+      id: Date.now(),
+      cart: [],
+      orders: []
+    });
+    
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('currentUser', JSON.stringify(formData));
+    navigate('/shop');
   };
 
   return (
     <div className="auth-container">
       <div className="auth-box">
         <h2>Sign Up for Vizon Workshop</h2>
+        {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input

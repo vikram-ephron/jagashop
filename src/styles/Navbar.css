@@ -142,4 +142,60 @@
   font-size: 2rem;
   color: #007bff;
   margin-right: 10px;
+}
+
+.cart-btn {
+  position: relative;
+  padding: 8px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #007bff;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.logout-btn {
+  padding: 8px 20px;
+  border: 1px solid #dc3545;
+  background: none;
+  color: #dc3545;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #dc3545;
+  color: white;
+}
+
+@media screen and (max-width: 960px) {
+  .user-menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
 } 
