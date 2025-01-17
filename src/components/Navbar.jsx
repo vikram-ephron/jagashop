@@ -7,10 +7,33 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { user, cart, logout } = useCart();
+  const adminUser = JSON.parse(localStorage.getItem('adminUser'));
 
   const handleLogout = () => {
-    logout();
+    if (adminUser) {
+      localStorage.removeItem('adminUser');
+      window.location.href = '/admin/login';
+    } else {
+      logout();
+    }
   };
+
+  // If admin is logged in, show minimal header
+  if (adminUser?.role === 'admin') {
+    return (
+      <nav className="navbar">
+        <div className="navbar-container">
+          <Link to="/admin/dashboard" className="navbar-logo">
+            <i className="fas fa-tools logo-icon"></i>
+            <span>Vizon Workshop Admin</span>
+          </Link>
+          <button onClick={handleLogout} className="admin-logout-btn">
+            <i className="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </nav>
+    );
+  }
 
   const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 

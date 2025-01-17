@@ -198,4 +198,43 @@
     width: 100%;
     gap: 10px;
   }
+}
+
+/* Add these styles for admin navbar */
+.admin-logout-btn {
+  padding: 8px 16px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.admin-logout-btn:hover {
+  background: #c82333;
+}
+
+.admin-logout-btn i {
+  font-size: 1.1rem;
+}
+
+/* When admin is logged in, navbar is simpler */
+.admin .navbar-container {
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+
+.admin .navbar-logo span {
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .admin .navbar-container {
+    padding: 15px;
+  }
 } 

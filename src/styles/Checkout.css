@@ -128,8 +128,91 @@
   margin-bottom: 20px;
 }
 
+.delivery-address {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.address-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.upi-form {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.upi-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.payment-option {
+  position: relative;
+  padding-left: 40px;
+}
+
+.payment-option input[type="radio"] {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.payment-details {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: none;
+}
+
+.payment-details.visible {
+  display: block;
+}
+
+.cod-notice {
+  margin-top: 15px;
+  padding: 15px;
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 5px;
+  color: #856404;
+}
+
+.payment-option.selected {
+  border-color: #28a745;
+  background: #f8fff9;
+}
+
+.payment-option.selected i {
+  color: #28a745;
+}
+
 @media (max-width: 768px) {
   .checkout-sections {
     grid-template-columns: 1fr;
+  }
+
+  .delivery-address,
+  .payment-section {
+    margin-top: 20px;
   }
 } 

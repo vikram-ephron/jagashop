@@ -92,4 +92,72 @@
   width: 100% !important;
   justify-content: center !important;
   margin-top: 10px !important;
+}
+
+.admin-login {
+  max-width: 320px;
+}
+
+.pin-icon {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pin-icon i {
+  font-size: 3rem;
+  color: #007bff;
+}
+
+.pin-input {
+  text-align: center;
+  letter-spacing: 8px;
+  font-size: 24px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.pin-dots {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.pin-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #eee;
+  transition: all 0.3s ease;
+}
+
+.pin-dot.filled {
+  background: #007bff;
+  transform: scale(1.1);
+}
+
+.admin-login .submit-button {
+  background: #007bff;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.admin-login .submit-button:disabled {
+  cursor: not-allowed;
+}
+
+.admin-login .submit-button:not(:disabled) {
+  opacity: 1;
+}
+
+/* Hide number input spinners */
+.pin-input::-webkit-outer-spin-button,
+.pin-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pin-input[type=number] {
+  -moz-appearance: textfield;
 } 

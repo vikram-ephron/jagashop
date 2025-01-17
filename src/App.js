@@ -16,6 +16,8 @@ import OrderConfirmation from './pages/OrderConfirmation';
 import './styles/App.css';
 import { CartProvider } from './context/CartContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminLogin from './components/Auth/AdminLogin';
+import AdminDashboard from './pages/admin/Dashboard';
 
 function App() {
   return (
@@ -61,6 +63,16 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <OrderConfirmation />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin" element={<AdminLogin />} />
+              <Route 
+                path="/admin/dashboard" 
+                element={
+                  <ProtectedRoute adminOnly>
+                    <AdminDashboard />
                   </ProtectedRoute>
                 } 
               />
