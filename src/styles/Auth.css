@@ -160,4 +160,88 @@
 
 .pin-input[type=number] {
   -moz-appearance: textfield;
+}
+
+.admin-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.admin-container .navbar {
+  background-color: #ffffff;
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.admin-container .navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-container .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #dc3545;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.admin-container .logo-icon {
+  font-size: 2rem;
+}
+
+.admin-container .auth-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+.admin-container .admin-login {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-container .pin-icon {
+  margin: 30px 0;
+}
+
+.admin-container .pin-icon i {
+  font-size: 3.5rem;
+  color: #dc3545;
+}
+
+.admin-container .submit-button {
+  background: #dc3545;
+  transition: background-color 0.3s;
+}
+
+.admin-container .submit-button:hover:not(:disabled) {
+  background: #c82333;
+}
+
+.admin-container .pin-dot.filled {
+  background: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .admin-container .navbar-container {
+    padding: 0 15px;
+  }
+
+  .admin-container .admin-login {
+    margin: 0 15px;
+    padding: 30px;
+  }
 } 
